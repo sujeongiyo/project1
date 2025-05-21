@@ -196,17 +196,17 @@ def analyze_reviews(api_key, reviews_text, product_name):
 블로그 내용:
 {reviews_text}
 
-응답은 JSON 형식으로 제공해주세요:
+응답은 JSON 형식으로 제공하되  Markdown출력은 사용하지 말아주세요:
 {{
-  "positive": "긍정적 의견 요약",
-  "negative": "부정적 의견 요약",
-  "summary": "전체 요약 및 총평"
+  "ad_analysis": "광고성 콘텐츠 분석 결과 (광고성 콘텐츠 비율 추정치 포함)",
+  "positive": "구체적인 긍정적 의견 요약 (실제 사용자 경험 중심)",
+  "negative": "구체적인 부정적 의견 요약 (실제 사용자 경험 중심)",
+  "summary": "객관적인 전체 요약 및 종합 평가"
 }}
-"""
 
         # API 호출
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-40-mini",
             messages=[
                 {"role": "system", "content": "당신은 제품 리뷰를 분석하는 전문가입니다. 제공된 네이버 블로그 포스트를 기반으로 긍정적 의견, 부정적 의견, 전체 요약을 명확하게 요약합니다."},
                 {"role": "user", "content": prompt}
