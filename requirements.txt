@@ -2,3 +2,4 @@ streamlit>=1.30.0
 pandas>=2.0.0
 openai>=0.28.0
 urllib3>=2.0.0
+langsmith>=0.0.83
