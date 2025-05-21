@@ -203,7 +203,7 @@ def analyze_reviews(api_key, reviews_text, product_name):
   "negative": "구체적인 부정적 의견 요약 (실제 사용자 경험 중심)",
   "summary": "객관적인 전체 요약 및 종합 평가"
 }}
-
+"""
         # API 호출
         response = openai.ChatCompletion.create(
             model="gpt-40-mini",
