@@ -11,7 +11,7 @@ import os
 # 기본 설정
 os.environ["LANGSMITH_TRACING_V2"] = "true"  # 추적 활성화
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"  # 엔드포인트
-os.environ["LANGSMITH_API_KEY"] = "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"  # 발급받은 API 키 입력
+os.environ["LANGSMITH_API_KEY"] = ""  # 발급받은 API 키 입력
 
 # 선택 사항
 os.environ["LANGSMITH_PROJECT"] = "naver_shopping_ai"  # 프로젝트 이름 (설정하지 않으면 "default"로 지정됨)
