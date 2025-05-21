@@ -8,16 +8,6 @@ from datetime import datetime
 import sqlite3
 import os
 
-# 기본 설정
-os.environ["LANGSMITH_TRACING_V2"] = "true"  # 추적 활성화
-os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"  # 엔드포인트
-os.environ["LANGSMITH_API_KEY"] = ""  # 발급받은 API 키 입력
-
-# 선택 사항
-os.environ["LANGSMITH_PROJECT"] = "naver_shopping_ai"  # 프로젝트 이름 (설정하지 않으면 "default"로 지정됨)
-
-
-
 # 페이지 설정
 st.set_page_config(
     page_title="네이버 블로그 리뷰 분석 시스템",
@@ -437,6 +427,85 @@ def main():
    
     # 데이터베이스 연결 종료
     conn.close()
+
+# 페이지 하단에 광고 배너 추가
+st.markdown("""
+<style>
+.ad-banner-container {
+    position: relative;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    margin-top: 30px;
+    text-align: center;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ad-banner-content {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ad-banner-image {
+    max-width: 200px;
+    margin-right: 15px;
+}
+
+.ad-banner-text {
+    text-align: left;
+    color: #333;
+}
+
+.ad-banner-text h4 {
+    margin: 0;
+    color: #1a73e8;
+    font-size: 16px;
+}
+
+.ad-banner-text p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.ad-progress-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #f0f0f0;
+    margin-top: 8px;
+    position: relative;
+}
+
+.ad-progress-indicator {
+    height: 100%;
+    width: 60%;
+    background-color: #ff0000;
+    position: absolute;
+    left: 0;
+}
+</style>
+
+<div class="ad-banner-container">
+    <div class="ad-banner-content">
+        <a href="https://www.coupang.com/vp/products/8184471988?itemId=20973099966&vendorItemId=3000244426&q=%EC%B4%88%EC%BD%94%EC%9A%B0%EC%9C%A0&itemsCount=36&searchId=4703042e1010975&rank=13&searchRank=13&isAddedCart=" target="_blank">
+            <img src="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/426464513267397-b4561d17-5c39-4b36-a03f-41180b4e5125.png">
+        </a>
+        <div class="ad-banner-text">
+            <h4> 매일우유</h4>
+            <p>맛도리 초코우유 드세요.</p>
+        </div>
+    </div>
+    <div class="ad-progress-bar">
+        <div class="ad-progress-indicator"></div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # 애플리케이션 실행
 if __name__ == "__main__":
